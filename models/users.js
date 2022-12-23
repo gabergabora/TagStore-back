@@ -1,23 +1,18 @@
 var mongoose = require('mongoose')
 var bcrypt = require('bcrypt')
 var userSchema = mongoose.Schema({
-   userName: {
-      type: String,
-      unique: true,
-      minLength: 8,
-      
-      required: true
-   },
-   password: {
-      type: String,
-      required: true,
-     
-   },
+   userFirstName: {type: String,  unique: true, required: true },
+   userlastName: { type: String, unique: true,  required: true },
+   EmailAddress: { type: String,  unique: true, required: true},
+   
+  
+   password: {type: String,  required: true },
    isAdmin:{type:Boolean,default:false},
-   orderId:[{
-      type:mongoose.Schema.ObjectId,
-      ref:"Order"
-    }]
+   orderId:[{ type:mongoose.Schema.ObjectId, ref:"Order" }],
+    state:{ type: String,required: true},
+    city:{type: String, required: true},
+     postalcode:{type: String,required: true}
+
 //   address(state,postcode,city)
 //   Email ,first name 
   

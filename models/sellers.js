@@ -1,19 +1,19 @@
 var mongoose = require('mongoose')
 var bcrypt = require('bcrypt')
 var sellerSchema = mongoose.Schema({
-   sellerFirstName: {type: String,  unique: true, minLength: 8,required: true },
-   sellerlastName: { type: String, unique: true, minLength: 8, required: true },
+   sellerfirstName: {type: String,  required: true },
+   sellerlastName: { type: String,   required: true },
    password: { type: String, required: true},
-   EmailAddress: { type: String,  unique: true, required: true},
-   isAdmin:{type:Boolean,default:false},
+   // EmailAddress: { type: String,  unique: true, required: true},
+    isAdmin:{type:Boolean,default:false},
    productId:[{ type:mongoose.Schema.ObjectId, ref:"Product"  }],
-   shopName: {type: String,required: true},
-   BankpName: { type: String,required: true},
-   Bank_Code: {type: String},
-   accountnumber: { type: String, required: true},
-    state:{ type: String,required: true},
-    city:{type: String, required: true},
-     postalcode:{type: String,required: true}
+   // shopName: {type: String,required: true},
+   // BankpName: { type: String,required: true},
+   // Bank_Code: {type: String},
+   // accountnumber: { type: String, required: true},
+   //  state:{ type: String,required: true},
+   //  city:{type: String, required: true},
+   //   postalcode:{type: String,required: true}
 
 //paypallaccount:{
 //    type: String,

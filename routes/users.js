@@ -66,16 +66,16 @@ router.get("/", async function (req, res) {
 
 
 router.post("/login", async function (req, res, next) {
-  const { userName, password } = req.body;
+  const { userFirstName, password } = req.body;
 
-  var user = await userModel.findOne({ userName: userName })   
+  var user = await userModel.findOne({ userFirstName: userFirstName})   
 
   if (user) {
     var valid = bcrypt.compareSync(password, user.password);
     if (valid) {
       
       var token = jwt.sign({
-        data: { userName: user.userName, userId: user.id,isAdmin:user.isAdmin }
+        data: { userfirstName:userFirstName, userId: user.id }
       }, process.env.SECRET, { expiresIn: '20d' });
 
       res.json(token)
