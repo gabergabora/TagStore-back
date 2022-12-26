@@ -1,5 +1,5 @@
 var fs=require("fs");
-var userModel=require("../models/users")
+var userModel=require("../../models/users")
 function patchuser(_id,_title){
   return userModel.findByIdAndUpdate(_id,_title)
     

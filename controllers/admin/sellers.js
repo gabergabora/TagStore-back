@@ -1,5 +1,5 @@
 var fs=require("fs");
-var sellerModel=require("../models/sellers")
+var sellerModel=require("../../models/sellers")
 function patchseller(_id,_title){
   return sellerModel.findByIdAndUpdate(_id,_title)
     

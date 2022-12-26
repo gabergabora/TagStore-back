@@ -6,9 +6,10 @@ var router = express.Router();
 const fs = require("fs");
 
 var bcrypt = require('bcrypt');
-//var {auth,verifytokenandauth}=require("../middlewares/auth")
+var {authuser}=require("../../middlewares/auth")
 
-var {postuser,patchuser,deleteuser,getuser} = require("../controllers/users");
+var {postuser,patchuser,deleteuser,getuser} = require("../../controllers/admin/users");
+
 
 
 
@@ -40,7 +41,7 @@ router.patch("/:id", async function (req, res, next) {
 
 })
 
-router.delete("/:id", async function (req, res) {
+router.delete("/:id",authuser, async function (req, res) {
   try {
     var userId = req.params.id;
     var found = await deleteuser(userId);
@@ -51,7 +52,7 @@ router.delete("/:id", async function (req, res) {
   }
 })
 
-router.get("/", async function (req, res) {
+router.get("/", authuser,async function (req, res) {
   try {
     var data = await getuser();
     res.json(data);

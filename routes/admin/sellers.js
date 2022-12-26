@@ -3,11 +3,12 @@ var express = require('express');
 var jwt = require("jsonwebtoken");
 var router = express.Router();
 const fs = require("fs");
+var {authseller}=require("../../middlewares/auth1")
 
 var bcrypt = require('bcrypt');
 
 
-var {postseller,patchseller,deleteseller,getseller} = require("../controllers/sellers");
+var {postseller,patchseller,deleteseller,getseller} = require("../../controllers/admin/sellers");
 
 
 
@@ -38,7 +39,7 @@ router.patch("/:id", async function (req, res, next) {
 
 })
 
-router.delete("/:id", async function (req, res) {
+router.delete("/:id",authseller, async function (req, res) {
   try {
     var userId = req.params.id;
     var found = await deleteseller(userId);
@@ -48,7 +49,7 @@ router.delete("/:id", async function (req, res) {
     res.status(422).send(err);
   }
 })
-router.get("/", async function (req, res) {
+router.get("/", authseller,async function (req, res) {
     try {
       var data = await getseller();
       res.json(data);

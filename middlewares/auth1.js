@@ -1,6 +1,6 @@
 var jwt = require('jsonwebtoken')
 
-function auth1(req, res, next) {
+function authseller(req, res, next) {
     const { authentication } = req.headers;
 
     jwt.verify(authentication, process.env.SECRET, function (err, decoded) {
@@ -19,4 +19,4 @@ function auth1(req, res, next) {
 
 }
 
-module.exports ={auth1}
+module.exports ={authseller}

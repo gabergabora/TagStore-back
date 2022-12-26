@@ -5,6 +5,7 @@ const cors = require('cors');
 const app = express();
 var userRouter = require('./routes/users')
 var sellerRouter = require('./routes/sellers')
+var adminRoutes = require('./routes/adminRoutes') 
 
 
 
@@ -17,6 +18,8 @@ app.use(express.json());
 
 app.use('/sellers', sellerRouter);
 app.use('/users', userRouter);
+app.use('/admin', adminRoutes)
+
 // app.use('/order', orderRouter);
 // app.use('/product', productRouter);
 
