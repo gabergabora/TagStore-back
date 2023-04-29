@@ -12,7 +12,7 @@ var userSchema = mongoose.Schema({
    //  state:{ type: String,required: true},
    //  city:{type: String, required: true},
    //   postalcode:{type: String,required: true}
-   userId: { type: 'string', required: true },
+   userId: { type: 'string', required: true },         
    email: { type: 'string', required: true },
    password: { type: 'string', required: true },
    Address1: { type: 'string' },
